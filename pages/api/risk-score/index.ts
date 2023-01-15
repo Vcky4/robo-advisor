@@ -1,4 +1,4 @@
-import clientPromise from "../../lib/mongodb";
+import clientPromise from "../../../lib/mongodb";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -7,9 +7,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         const db = client.db("robo_advisor");
 
         const movies = await db
-            .collection("movies")
+            .collection("RiskScore")
             .find({})
-            .limit(10)
             .toArray();
 
         res.json(movies);
