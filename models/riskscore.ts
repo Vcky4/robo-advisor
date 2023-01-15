@@ -1,18 +1,17 @@
 import { model, Schema, models, } from 'mongoose';
 
 const riskScoreSchema = new Schema({
-    id: String,
     riskScore: Number,
-    nigerianStock: String,
-    foriengnStock: String,
-    techStock: String,
-    emergingStock: String,
-    nigerianBond: String,
-    foriengnBond: String,
-    commodity: String,
-    realEstate: String,
-    tbills: String,
-    alternative: String,
+    nigerianStock: Number,
+    foriengnStock: Number,
+    techStock: Number,
+    emergingStock: Number,
+    nigerianBond: Number,
+    foriengnBond: Number,
+    commodity: Number,
+    realEstate: Number,
+    tbills: Number,
+    alternative: Number,
 });
 
 const RiskScore = models.RiskScore || model('RiskScore', riskScoreSchema);

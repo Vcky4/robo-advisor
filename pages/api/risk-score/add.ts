@@ -4,7 +4,7 @@ import connectMongo from "../../../utils/connectMongo";
 import RiskScore from "../../../models/riskscore";
 
 export default async function add(req: NextApiRequest, res: NextApiResponse) {
-    const { id,
+    const {
         riskScore,
         nigerianStock,
         foriengnStock,
