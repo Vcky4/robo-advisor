@@ -1,7 +1,7 @@
 import { model, Schema, models, } from 'mongoose';
 
 const riskScoreSchema = new Schema({
-    riskScore: Number,
+    riskScore: { type: Number, required: true, unique: true },
     nigerianStock: Number,
     foriengnStock: Number,
     techStock: Number,
