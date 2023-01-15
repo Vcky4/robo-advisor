@@ -24,7 +24,9 @@ export default async function add(req: NextApiRequest, res: NextApiResponse) {
         await connectMongo()
 
         console.log('connected to mongo')
+        console.log('creating new risk score')
         const newRiskScore = await RiskScore.create(req.body)
+        console.log('created new risk score')
 
         res.status(200).json({ riskScore: newRiskScore, message: "success" });
 
