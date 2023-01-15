@@ -1,5 +1,7 @@
 import clientPromise from "../../../lib/mongodb";
 import { NextApiRequest, NextApiResponse } from "next";
+import connectMongo from "../../../utils/connectMongo";
+import RiskScore from "../../../models/riskscore";
 
 export default async function add(req: NextApiRequest, res: NextApiResponse) {
     const { id,
@@ -15,4 +17,13 @@ export default async function add(req: NextApiRequest, res: NextApiResponse) {
         alternative
 
     } = req.body;
+
+    console.log('connecting to mongo')
+
+    await connectMongo()
+
+    console.log('connected to mongo')
+    const newRiskScore = await RiskScore.create(req.body)
+
+    res.status(200).json({ riskScore: newRiskScore, message: "success" });
 };
